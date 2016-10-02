@@ -15,7 +15,7 @@ include_directories(
 
 add_definitions(-DGSL_THROW_ON_CONTRACT_VIOLATION)
 
-if(MSVC14 OR MSVC12) # has the support we need
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC") # has the support we need
     # remove unnecessary warnings about unchecked iterators
     add_definitions(-D_SCL_SECURE_NO_WARNINGS)
     add_compile_options(/W4)
